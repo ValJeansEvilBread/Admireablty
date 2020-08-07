@@ -148,6 +148,39 @@ public class UserController {
     }
         
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     //Get method for the last five ratings given to the user as the subject
     /*

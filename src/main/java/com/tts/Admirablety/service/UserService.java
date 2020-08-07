@@ -16,7 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.tts.Admirablety.model.Rating;
-import com.tts.Admirablety.model.RatingDisplay;
 import com.tts.Admirablety.model.Role;
 import com.tts.Admirablety.model.User;
 import com.tts.Admirablety.repository.RoleRepository;
@@ -123,34 +122,7 @@ public class UserService {
     
     
     
-    
-
-
-
-    // Needs adjustment
-    /* Long-winded way to make the time format look nice (through a RatingDislpay model) */
-    private List<RatingDisplay> formatTimestamps(List<Rating> ratings) {
-    	List<RatingDisplay> response = new ArrayList<>();
-    	PrettyTime prettyTime = new PrettyTime();
-    	SimpleDateFormat simpleDate = new SimpleDateFormat("M/d/yy");
-    	Date now = new Date();
-    	for(Rating rating : ratings) {
-    		RatingDisplay ratingDisplay = new RatingDisplay();
-    		ratingDisplay.setRater(rating.getRater());
-    		ratingDisplay.setStars(rating.getStars_given());
-    		long diffInMillies = Math.abs(now.getTime() - rating.getCreatedAt().getTime());
-    		long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-    		if (diff > 3) {
-    			ratingDisplay.setDate(simpleDate.format(rating.getCreatedAt()));
-    		} else {
-    			ratingDisplay.setDate(prettyTime.format(rating.getCreatedAt()));
-    		}
-    		response.add(ratingDisplay);
-    	}
-    	return response;
-    }
-    
-    
+   
     
     
     
